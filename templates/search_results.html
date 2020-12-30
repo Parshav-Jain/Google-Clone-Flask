@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search results</title>
+    <style>
+        .main_work{
+            margin-top: 20px;
+        }
+        #google_side_img{
+            width: 96px;
+            height: 54px;
+        }
+        .google_search{
+            position: relative;
+            top:-23px;
+            left:34px;
+            font-size:17px;
+            border-radius: 20px;
+            height: 35px;
+            width: 600px;
+            border:1px solid rgb(226, 221, 221);
+        }
+        .google_search:hover{
+            
+            box-shadow: 1px 1px rgba(0, 0, 0,0.6);
+            box-shadow: -1px -1px rgba(0, 0, 0,0.6);
+        }
+        .google_search:focus{
+            outline: none;
+        }
+        .type_bar{
+            overflow: hidden;
+        }
+        .type_bar ul{
+            overflow-x: hidden;
+            position: relative;
+            top:-10px;
+            left:105px;
+
+        }
+        .type_bar li{
+            font-size: 18px;
+            margin-right: 20px;
+            display: inline-block;
+            list-style: none;
+        }
+        .type_bar li a{
+            color:rgba(0,0,0,0.5);
+            text-decoration: none;
+        }
+        hr{
+            position:relative;
+            top:-15px;
+            left:1px;
+        }
+        .results{
+            position: relative;
+            top:11px;
+            left:137px;
+            overflow-x: hidden;
+            margin-bottom: 100px;
+        }
+        .link{
+            font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+            color:#202124;
+            padding: 1px 0px 0px;
+        }
+        .title_link{
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.3px;
+            margin-bottom: 5px;
+            text-decoration: none;
+        }
+        .title_link:hover{
+            text-decoration: underline;
+        }
+        .title_link:visited{
+            color:#609;
+        }
+        .snippet{
+            font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #4D5156;
+            margin-top: 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class = 'main_work'>
+        <div class = 'top_div'>
+            <img src = '../static/google_logo.jpg' id = 'google_side_img'>
+            <input type = 'text' class = 'google_search'>
+            <div class = 'type_bar'>
+                <ul>
+                    <li><a href = ''>All</a></li>
+                    <li><a href = ''>Images</a></li>
+                    <li><a href = ''>News</a></li>
+                    <li><a href = ''>Maps</a></li>
+                    <li><a href = ''>More</a></li>
+                    
+                    
+                </ul>
+            </div>
+            <hr>
+        </div>
+        <div class = 'results'>
+            {%for i in resource_items%}
+                <!--<p class = 'link'>{{items[1]}}</p>
+                <a href = {{link}} class = 'title_link'>{{items[0]}}</a><br>
+                <span class = 'snippet'>{{items[2]}}</span><BR>
+                <-->
+                <p class = 'link'>{{i['link']}}</p>
+                <a href = {{i['link']}} , class = 'title_link'>{{i['title']}}</a><br>
+                <span class = 'snippet'>{{i['snippet']}}</span>
+            {%endfor%}
+        </div>
+    </div>
+
+<script>
+    a = '{{query}}'
+    '{{query}}'  = 'HEllo';
+</script>
+</body>
+</html>
