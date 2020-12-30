@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google</title>
+    <style>
+
+        .center_div{
+            text-align: center;
+            position: absolute;
+            top: 39%;
+            left: 50%;
+            -ms-transform: translateX(-50%) translateY(-50%);
+            -webkit-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+
+        }
+        #google_img{
+            position: relative;
+            
+            font-size: 30px;
+            letter-spacing: 0px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+       
+        #google_search{
+            font-size:17px;
+            border-radius: 20px;
+            height: 35px;
+            width: 500px;
+            border:1px solid rgb(226, 221, 221);
+        }
+        #google_search:hover{
+            border:3px solid  rgb(224, 224, 224);
+        }
+        #google_search:focus{
+            outline: none;
+        }
+        #search_icon{
+            width: 16px;
+            height: 17px;
+            position: relative;
+            top:3px;
+            left:35px
+        }
+        .below_btn button{
+            border:none;
+            font-size:16px;
+            padding:10px;
+            margin:10px;
+            cursor:pointer;
+            outline:none;
+        }
+        .below_btn:focus
+        {
+            outline: none;
+        }
+        #feeling_lucky a{
+            color: black;
+            text-decoration: none;
+        }
+        .below_btn button:hover{
+            border:1px solid  rgb(218, 206, 206);
+        }
+        
+        
+
+
+
+    </style>
+</head>
+<body> 
+    
+    <div class = 'center_div'>
+        <span id = 'google_img'>
+            <img src = '../static/google_logo.jpg' width = '300px' >
+        </span><br>
+
+        <form>
+            <input type="text" id = 'google_search' >
+        </form>
+        
+        <br><br>
+        <span class = 'below_btn'>
+            <button id = 'search_button' onclick="search()">Google Search</button>
+            <button id = 'feeling_lucky'><a href = 'https://www.google.com/doodles/'>I'm Feeling Lucky</a></button>
+        </span>
+       
+        
+        
+
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+
+//Inside the script tag use js to print the title and link on the search
+// Title must be inside  p tag and link must be inside a tag and their would also be there.
+// Use a for loop to print the items and the p and a tag values must be empty so that they can
+// enter the values multiple time and use the class for each . 
+
+// Create a <a> tag to change the url of the website and assign the search url for search_results.html
+// in the flask app
+
+
+    var search = document.getElementById('google_search');
+
+    $(search).on('keypress',function(e) {
+    if(e.which == 13) {
+        if (search.value == ''){
+            alert('Please search something !')
+        }
+        else{
+            query = '{{query}}' = search.value
+            location.assign("http://127.0.0.1:5000/search");
+            
+        }
+
+    }
+});
+
+
+</script>
+</body>
+</html>
